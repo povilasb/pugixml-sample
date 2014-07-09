@@ -1,15 +1,27 @@
 #include <iostream>
+#include <sstream>
+
+#include <pugixml.hpp>
 
 
 using namespace std;
+namespace xml = pugi;
+
+
+const string str_xml =
+"<html>"
+	"<body>"
+	"</body>"
+"</html>"
+;
 
 
 int
 main(void)
 {
-	int retval = 0;
+	xml::xml_document doc;
+	doc.load(str_xml.c_str());
+	cout << doc.child("body").tag_name() << '\n';
 
-	cout << "Entrypoint" << endl;
-
-	return retval;
+	return 0;
 }
