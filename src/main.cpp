@@ -21,7 +21,7 @@ main(void)
 {
 	xml::xml_document doc;
 	doc.load(str_xml.c_str());
-	cout << doc.child("body").tag_name() << '\n';
+	cout << doc.child("body") << '\n';
 
 	return 0;
 }
